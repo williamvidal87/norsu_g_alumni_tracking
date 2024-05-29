@@ -57,6 +57,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at'
     ];
     
+    public static function convertEmptyToNull($value)
+    {
+        return $value === '' ? null : $value;
+    }
+
     public function getEmploymentStatus()
     {
         return $this->belongsTo(EmploymentStatus::class,'employment_status_id');

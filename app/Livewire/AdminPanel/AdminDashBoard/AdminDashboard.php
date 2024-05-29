@@ -52,6 +52,7 @@ class AdminDashboard extends Component
 
         return view('livewire.admin-panel.admin-dash-board.admin-dashboard',[
             'AlumniData'    =>  User::where('role_id',2)->get(),
+            'AlumniUpdatedData'    =>  User::where('role_id',2)->whereNotNull('employment_status_id')->get(),
             'EmployedData'    =>  User::where('role_id',2)->where('employment_status_id',1)->get(),
             'UnEmployedData'    =>  User::where('role_id',2)->whereNotIn('employment_status_id',[1])->get(),
             'alumniData'    =>  $alumniData,

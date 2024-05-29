@@ -154,6 +154,13 @@ class AlumniManagementForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+
             if($this->AlumniID){
                 User::find($this->AlumniID)->update($data);
                 $this->alert('info','Your data has been successfully updated.');

@@ -61,6 +61,13 @@ class AlumniForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if($this->AlumniID){
                 if ($this->password) {
                     $data['password']=bcrypt($this->password);

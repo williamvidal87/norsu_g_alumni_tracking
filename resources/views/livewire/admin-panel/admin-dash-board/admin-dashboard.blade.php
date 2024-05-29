@@ -16,7 +16,7 @@
     </header>
 
     <div class="row quick-stats">
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-6 col-md-6">
             <div class="quick-stats__item">
                 <div class="quick-stats__info">
                     <h2>{{number_format(count($AlumniData),0)}}</h2>
@@ -27,7 +27,18 @@
             </div>
         </div>
 
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-6 col-md-6">
+            <div class="quick-stats__item">
+                <div class="quick-stats__info">
+                    <h2>{{number_format(count($AlumniUpdatedData),0)}}</h2>
+                    <small>Alumni Updated account</small>
+                </div>
+
+                <div class="quick-stats__chart peity-bar">{{implode(',',str_split(count($AlumniUpdatedData)))}}</div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-6">
             <div class="quick-stats__item">
                 <div class="quick-stats__info">
                     <h2>{{number_format(count($EmployedData),0)}}</h2>
@@ -38,7 +49,7 @@
             </div>
         </div>
 
-        <div class="col-sm-4 col-md-4">
+        <div class="col-sm-6 col-md-6">
             <div class="quick-stats__item">
                 <div class="quick-stats__info">
                     <h2>{{number_format(count($UnEmployedData),0)}}</h2>

@@ -40,7 +40,7 @@ class DegreeTable extends Component
     
     public function DeleteThis($DegreeID)
     {
-        Degree::destroy($DegreeID);
+        EducationalLevel::destroy($DegreeID);
         $this->alert('error','Your data has been successfully deleted.');
     }
 }

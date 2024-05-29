@@ -19,7 +19,7 @@ class DegreeForm extends Component
     public function DegreeID($DegreeID)
     {
         $this->DegreeID = $DegreeID;
-        $data=Degree::find($DegreeID);
+        $data=EducationalLevel::find($DegreeID);
         $this->educational_level_name = $data['educational_level_name'];
     }
 
@@ -41,6 +41,13 @@ class DegreeForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if($this->DegreeID){
 
                 EducationalLevel::find($this->DegreeID)->update($data);

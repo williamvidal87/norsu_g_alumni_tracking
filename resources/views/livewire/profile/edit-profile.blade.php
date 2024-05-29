@@ -5,7 +5,7 @@
         </header>
 
         <div class="card profile">
-            <div class="profile__img">
+            <div class="profile__img" wire:ignore>
                 <img id="profileImage" class="user__img" style="min-width: 200px; height: 200px; object-fit: cover;"
                     src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}">
                 <label for="profileImgUpload" class="zwicon-camera profile__img__edit"></label>

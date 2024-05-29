@@ -154,6 +154,13 @@ class EditProfile extends Component
         ]);
 
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if ($this->profile_photo_path) {
                 $data['profile_photo_path']=$this->profile_photo_path->store('profile-photos');
             }

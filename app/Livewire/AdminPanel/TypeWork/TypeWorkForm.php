@@ -40,6 +40,13 @@ class TypeWorkForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if($this->TypeWorkID){
 
                 TypeWork::find($this->TypeWorkID)->update($data);

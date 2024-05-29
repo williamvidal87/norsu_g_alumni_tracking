@@ -40,6 +40,13 @@ class CollegeDepartmentForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if($this->CollegeDepartmentID){
 
                 CollegeDepartment::find($this->CollegeDepartmentID)->update($data);

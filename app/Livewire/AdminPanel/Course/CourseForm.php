@@ -51,6 +51,13 @@ class CourseForm extends Component
         ]);
         
         try {
+            
+            foreach ($data as $key => $value) {
+                if ($value === '') {
+                    $data[$key] = null;
+                }
+            }
+            
             if($this->CourseID){
 
                 Course::find($this->CourseID)->update($data);
