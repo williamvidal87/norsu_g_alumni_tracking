@@ -11,6 +11,7 @@ class AdminDashboard extends Component
     public function render()
     {
         $alumniData = User::where('role_id', 2)
+                          ->whereNotNull('year_graduate')
                           ->select('year_graduate', DB::raw('count(*) as count'))
                           ->groupBy('year_graduate')
                           ->orderBy('year_graduate', 'asc')
@@ -25,6 +26,7 @@ class AdminDashboard extends Component
 
 
         $alumniEmployedData = User::where('role_id', 2)
+        ->whereNotNull('year_graduate')
         ->select('year_graduate', DB::raw('count(*) as total_count'))
         ->groupBy('year_graduate')
         ->pluck('total_count', 'year_graduate')
@@ -51,7 +53,7 @@ class AdminDashboard extends Component
 
 
         return view('livewire.admin-panel.admin-dash-board.admin-dashboard',[
-            'AlumniData'    =>  User::where('role_id',2)->get(),
+            'AlumniData'    =>  User::where('role_id',2)->whereNotNull('year_graduate')->get(),
             'AlumniUpdatedData'    =>  User::where('role_id',2)->whereNotNull('employment_status_id')->get(),
             'EmployedData'    =>  User::where('role_id',2)->where('employment_status_id',1)->get(),
             'UnEmployedData'    =>  User::where('role_id',2)->whereNotIn('employment_status_id',[1])->get(),
